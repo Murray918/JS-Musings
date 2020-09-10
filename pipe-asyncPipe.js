@@ -35,7 +35,7 @@ function asyncPipe(...fns) {
 }
 
 const waitPlus3 = x =>
-	new Promise(resolve => setTimeout(() => resolve(x + 3), 100)) //?
+	new Promise(resolve => setTimeout(() => resolve(x + 3), 1000)) //?
 const waitSquare = x =>
 	new Promise(resolve => setTimeout(() => resolve(x * x), 300)) //?
 const waitDouble = x =>
@@ -50,3 +50,5 @@ asyncPipe(
 	.catch(error => new Error(error)) //?
 
 //functionToCheck && {}.toString.call(functionToCheck) === '[object Function]'
+
+
