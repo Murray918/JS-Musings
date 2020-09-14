@@ -28,19 +28,32 @@
 
 // Explanation:
 // Test-case 1: Three swaps can make the input 1234567 to 7654321, swapping 1 with 7, 2 with 6 and finally 3 with 5.
-const swapKs = (k, string) => {
-	string.split().map((num, index) => {
-		if (num <= string[index + 1]) {
-			return num //?
-		} else if (num > string[index + 1]) {
-			let temp = num
-			return num //?
-		}
-	})
-	if (k <= 0) {
-		return k
-	}
-	k--
-	return swapKs(k, string)
+
+const swapKs = (k, string, startingIndex = 0) => {
+  const splitString = string.split("");
+  const nextSwap = swapValueWithHighestPrecedingValue(
+    splitString,
+    startingIndex
+  );
+  k--; //?
+  startingIndex++; //?
+  if (k <= 0) {
+    return nextSwap.join(""); //?
+  }
+  return swapKs(k, nextSwap.join(""), startingIndex);
+};
+
+swapKs(2, "132456"); //?
+
+function swapValueWithHighestPrecedingValue(array, startingIndex) {
+  let mutations = [...array];
+  let tempValue = mutations[startingIndex];
+
+  for (let index = startingIndex; index < mutations.length; index++) {
+    if (mutations[index + 1] > tempValue) tempValue = mutations[index + 1];
+  }
+  mutations[mutations.indexOf(tempValue)] = mutations[startingIndex];
+  mutations[startingIndex] = tempValue;
+
+  return mutations; //?
 }
-swapKs(2, '1324') //?
