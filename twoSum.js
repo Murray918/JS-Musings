@@ -28,7 +28,7 @@ Output: [0,1]
 Constraints:
 
     2 <= nums.length <= 105
-    -109 <= nums[i] <= 109
+    -109 <= nums[index] <= 109
     -109 <= target <= 109
     Only one valid answer exists.
 
@@ -39,15 +39,20 @@ Constraints:
  * @param {number} target target number
  * @return {number[]} the indexes of the array values of whom sum equals the target 
  */
-function twoSum(nums, target) {
-  let result = [];
-  for (const num of nums) {
-    for (const num2 of nums)
-      if (num + num2 === target) {
-        result = [nums.indexOf(num), nums.indexOf(num2)];
-      }
-  }
-  return result;
-}
+const twoSum = function (nums, target) {
+  const exist = {}; //?
+  let index = 0;
 
-twoSum([3, 2, 4], 6); //?
+  for (const num of nums) {
+    exist;
+    //this cancels out numbers from our cache
+    if (typeof exist[target - num] !== "undefined") {
+      return [exist[target - num], index];
+    }
+    // flipflop the index with the value from nums and cache
+    exist[num] = index;
+    index++;
+  }
+};
+// twoSum([4, 3, 2, 1, 5, -1], 6); //?
+twoSum([2, -6, 11, 15], 9); //?

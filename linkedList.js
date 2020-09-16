@@ -80,4 +80,4 @@ let list = new LinkedList(node1);
 list.getFirst(); //?
 list.size(); //?
 list.getLast(); //?
-list.add(6)
+list.add(6) //?

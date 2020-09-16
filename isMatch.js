@@ -65,8 +65,6 @@
 
 function isMatch(s, p, result = false) {
   let flags = "";
-  if (s.match(p)) flags = `${flags}g`; //?
-  let matcher = new RegExp("a", flags); //?
     s.match(matcher)
   //?
 
