@@ -32,5 +32,5 @@
  * @return {ListNode}
  */
 function mergeKLists(lists) {
-  return lists.flat().sort();
+  // ...go for it
 }
